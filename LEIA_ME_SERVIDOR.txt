@@ -1,0 +1,20 @@
+APP COLEIRAS 1.14 (build 14)
+Alterações à 1.13: secção Servidor; seleção do fluxo pelo base_type real recebido por BLE;
+fila persistente de leituras com sessão/sequência; envio HTTP autenticado em lotes;
+chave no Chaveiro iOS; reenvio com a app ativa; horas de contacto e posição preservadas.
+O mapa nativo Apple, controlos de recarga/intervalo e relatórios existentes são mantidos.
+Não se alterou o protocolo LoRa nem o pino D4 das baterias.
+
+Compila a pasta com codemagic.yaml. Não foi produzida uma IPA neste ambiente.
+O ficheiro Info.plist explícito inclui a permissão de rede local e permite transporte HTTP
+para a rede privada. O próprio cliente só aceita HTTP em IPs privados/CGNAT-VPN; noutros
+endereços exige HTTPS e não segue redirecionamentos com a chave de envio.
+Se o iPhone pedir acesso à rede local, permite-o para comunicar com o Raspberry.
+
+Uma fila anterior é enviada ao servidor configurado, mesmo depois de escolher Raspberry
+como base. Não mudes a configuração para servidores de terceiros: a fila contém posições.
+Se o endereço for o mesmo Raspberry em casa/campo, a fila mantém o destino correto.
+As chaves de envio podem ser revogadas no portal. Nunca publiques a chave no código.
+
+LIMITE: precisa de app ativa para acompanhamento contínuo; não há serviço iOS de fundo.
+A confirmação de receção HTTP do servidor não é uma confirmação LoRa à coleira.

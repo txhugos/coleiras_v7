@@ -1,0 +1,39 @@
+APP COLEIRAS 1.13 (13) — COMPATÍVEL COM REDE 4.1
+
+INSTALAR
+Este ZIP contém apenas a app completa para Codemagic. Extraia o conteúdo
+para a raiz do repositório: codemagic.yaml e ColeirasCaes.xcodeproj devem
+ficar no mesmo nível. Compile e instale como anteriormente.
+Só é necessário atualizar a app para esta função. O firmware 4.1 das
+coleiras e o Python do Raspberry não precisam de alteração.
+
+DAR NOME
+1. Escolha a coleira no seletor.
+2. Abra Definições > Nome da coleira.
+3. Escreva um nome, por exemplo Rex, e toque Guardar nome.
+Repor DOGxx remove o nome personalizado. Também pode guardar o campo vazio.
+Aceita até 30 caracteres, incluindo acentos; não aceita quebras de linha.
+
+O seletor mostra Rex (DOG01); no mapa o título é Rex e a legenda mantém
+DOG01. Os alertas incluem nome e ID. O percurso apresenta os nomes e IDs.
+Os comandos de intervalo/recarga e a rede continuam a usar DOG01/DOG02/etc.
+Um nome igual noutra coleira é permitido: o ID continua a distingui-las.
+Pode mudar o nome offline; funciona para novas coleiras descobertas.
+O nome é local ao iPhone, conservado entre aberturas/atualizações normais
+da app com o mesmo identificador. Não muda o nome Bluetooth do recetor.
+Não sincroniza entre iPhones. Remover a app/dados pode apagar os nomes.
+Ao trocar de Raspberry para DOG01, o nome acompanha o ID da coleira.
+
+RELATÓRIOS
+O JSON de ensaio (schemaVersion 2) inclui collarNames, com a associação
+ID/nome no momento da exportação. Os registos mantêm IDs técnicos.
+Mudanças de nome durante uma gravação entram como evento nome_coleira.
+O CSV inclui a coluna nome_coleira com o nome no momento da exportação.
+O histórico JSON antigo por coleira conserva o formato original, por IDs.
+
+VALIDAÇÃO
+Análise sintática Swift passou. Não há SDK Apple neste ambiente, portanto
+compilação final e ensaio de interface/persistência/notificações aguardam
+Codemagic e iPhone.
+Verificar: guardar Rex para DOG01, mudar para DOG02 e guardar outro nome;
+voltar a DOG01; fechar/reabrir; conferir mapa; exportar um ensaio; repor ID.
